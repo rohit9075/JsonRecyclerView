@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     RecyclerAdapter mRecyclerAdapter;
     private String TAG = MainActivity.class.getSimpleName();
     ProgressDialog progressDialog;
+
+    // Server url to get the Json data
     String reqUrl = "http://pusuluribalaji66.000webhostapp.com/RetrofitExample/public/user";
 
 
@@ -30,16 +32,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initViews();
+
+        // initViews() method call
+         initViews();
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mUserList = new ArrayList<>();
-        //new GetNews.execute();
+
+
         new GetUsers().execute();
     }
     public void initViews()
     {
         mRecyclerView=(RecyclerView)findViewById(R.id.recyclerView);
     }
+
     public class GetUsers extends AsyncTask<Void, Void, Void> {
 
 
