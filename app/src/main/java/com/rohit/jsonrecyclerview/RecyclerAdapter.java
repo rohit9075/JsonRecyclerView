@@ -12,10 +12,10 @@ import java.util.List;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>
 {
-    List<Model> mUserList;
-    Context context;
+    private List<Model> mUserList;
+    private Context context;
 
-    public RecyclerAdapter(Context context, List<Model> mUserList) {
+    RecyclerAdapter(Context context, List<Model> mUserList) {
         this.mUserList=mUserList;
         this.context=context;
 
@@ -42,12 +42,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         return mUserList.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    class MyViewHolder extends RecyclerView.ViewHolder {
         private TextView name;
         private TextView email;
         private TextView gender;
         private TextView id;
-        public MyViewHolder(View itemView) {
+
+        MyViewHolder(View itemView) {
             super(itemView);
             name=(TextView)itemView.findViewById(R.id.name);
             email=(TextView)itemView.findViewById(R.id.email);

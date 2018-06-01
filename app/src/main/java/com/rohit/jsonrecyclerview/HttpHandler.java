@@ -1,11 +1,6 @@
 package com.rohit.jsonrecyclerview;
 
-/**
- * Created by SILAJIT on 14-08-2017.
- */
-
 import android.util.Log;
-
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -21,7 +16,7 @@ public class HttpHandler {
 
     private static final String TAG = HttpHandler.class.getSimpleName();
 
-    public HttpHandler() {
+    HttpHandler() {
     }
 
     public String makeServiceCall(String reqUrl) {

@@ -1,5 +1,6 @@
 package com.rohit.jsonrecyclerview;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -16,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    List<Model> mUserList=new ArrayList<>();
+    List<Model> mUserList = new ArrayList<>();
 
     Model mUser;
     RecyclerView mRecyclerView;
@@ -34,18 +35,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // initViews() method call
-         initViews();
+        initViews();
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mUserList = new ArrayList<>();
 
 
         new GetUsers().execute();
     }
-    public void initViews()
-    {
-        mRecyclerView=(RecyclerView)findViewById(R.id.recyclerView);
+
+    public void initViews() {
+        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
     }
 
+    @SuppressLint("StaticFieldLeak")
     public class GetUsers extends AsyncTask<Void, Void, Void> {
 
 
@@ -67,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
             mRecyclerView.setAdapter(mRecyclerAdapter);
 
         }
+
         @Override
         protected Void doInBackground(Void... voids) {
             HttpHandler httpHandler = new HttpHandler();
@@ -78,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
                     for (int i = 0; i < article.length(); i++) {
                         JSONObject jsonObject1 = article.optJSONObject(i);
-                        Model mUser=new Model();
+                        Model mUser = new Model();
                         mUser.setId(jsonObject1.getString("id"));
                         mUser.setEmail(jsonObject1.getString("email"));
                         mUser.setName(jsonObject1.getString("name"));
