@@ -72,20 +72,35 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected Void doInBackground(Void... voids) {
+
+            // HttpHandler object
             HttpHandler httpHandler = new HttpHandler();
+
+            // making the method call in httpHandler class.
             String jsonString = httpHandler.makeServiceCall(reqUrl);
+
             if (jsonString != null) {
                 try {
+
+                    // jsonObject to handle the received json file.
                     JSONObject jsonObject = new JSONObject(jsonString);
+
+                    // getting the json array from the json object
                     JSONArray article = jsonObject.getJSONArray("users");
 
+                    // traversing the json array
                     for (int i = 0; i < article.length(); i++) {
+                        // getting the json object from the array.
                         JSONObject jsonObject1 = article.optJSONObject(i);
+
+                        // model class to store the user data
                         Model mUser = new Model();
                         mUser.setId(jsonObject1.getString("id"));
                         mUser.setEmail(jsonObject1.getString("email"));
                         mUser.setName(jsonObject1.getString("name"));
                         mUser.setGender(jsonObject1.getString("gender"));
+
+                        // add the user object in the userList.
                         mUserList.add(mUser);
                     }
                 } catch (JSONException e) {
