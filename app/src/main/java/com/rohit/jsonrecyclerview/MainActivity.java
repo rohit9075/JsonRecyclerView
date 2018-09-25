@@ -19,13 +19,11 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     List<Model> mUserList = new ArrayList<>();
 
-    Model mUser;
     RecyclerView mRecyclerView;
     RecyclerAdapter mRecyclerAdapter;
     ProgressDialog progressDialog;
     // Server url to get the Json data
     String reqUrl = "http://pusuluribalaji66.000webhostapp.com/RetrofitExample/public/user";
-    private String TAG = MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mUserList = new ArrayList<>();
 
-
         new GetUsers().execute();
     }
 
@@ -47,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
 
     @SuppressLint("StaticFieldLeak")
     public class GetUsers extends AsyncTask<Void, Void, Void> {
-
 
         @Override
         protected void onPreExecute() {
