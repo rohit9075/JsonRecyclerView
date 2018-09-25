@@ -19,6 +19,12 @@ public class HttpHandler {
     HttpHandler() {
     }
 
+    /**
+     *  method to fetch the json data from the server.
+     * @param reqUrl parameter to receive the url from the calling class.
+     * @return json string
+     */
+
     public String makeServiceCall(String reqUrl) {
         String response = null;
         try {
@@ -40,6 +46,11 @@ public class HttpHandler {
         return response;
     }
 
+    /**
+     * method to convert input stream to string.
+     * @param is method parameter
+     * @return string result
+     */
     private String convertStreamToString(InputStream is)
     {
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
