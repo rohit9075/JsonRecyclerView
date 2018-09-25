@@ -22,12 +22,10 @@ public class MainActivity extends AppCompatActivity {
     Model mUser;
     RecyclerView mRecyclerView;
     RecyclerAdapter mRecyclerAdapter;
-    private String TAG = MainActivity.class.getSimpleName();
     ProgressDialog progressDialog;
-
     // Server url to get the Json data
     String reqUrl = "http://pusuluribalaji66.000webhostapp.com/RetrofitExample/public/user";
-
+    private String TAG = MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

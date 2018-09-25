@@ -1,6 +1,7 @@
 package com.rohit.jsonrecyclerview;
 
 import android.util.Log;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,11 +17,9 @@ public class HttpHandler {
 
     private static final String TAG = HttpHandler.class.getSimpleName();
 
-    HttpHandler() {
-    }
-
     /**
-     *  method to fetch the json data from the server.
+     * method to fetch the json data from the server.
+     *
      * @param reqUrl parameter to receive the url from the calling class.
      * @return json string
      */
@@ -48,11 +47,11 @@ public class HttpHandler {
 
     /**
      * method to convert input stream to string.
+     *
      * @param is method parameter
      * @return string result
      */
-    private String convertStreamToString(InputStream is)
-    {
+    private String convertStreamToString(InputStream is) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
         StringBuilder sb = new StringBuilder();
 
